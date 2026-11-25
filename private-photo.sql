@@ -1,0 +1,4 @@
+insert into storage.buckets (id,name,public) values ('residence-photos','residence-photos',false) on conflict (id) do nothing;
+create policy "Residence photo read" on storage.objects for select to authenticated using (bucket_id='residence-photos' and (storage.foldername(name))[1]=public.current_household_id()::text);
+create policy "Residence photo insert" on storage.objects for insert to authenticated with check (bucket_id='residence-photos' and (storage.foldername(name))[1]=public.current_household_id()::text and public.is_household_admin());
+create policy "Residence photo update" on storage.objects for update to authenticated using (bucket_id='residence-photos' and (storage.foldername(name))[1]=public.current_household_id()::text and public.is_household_admin()) with check (bucket_id='residence-photos' and (storage.foldername(name))[1]=public.current_household_id()::text and public.is_household_admin());

@@ -1,10 +1,10 @@
 {
-  "name": "The Loper Residence",
-  "short_name": "Residence",
+  "name": "Beeler Family",
+  "short_name": "Beeler",
   "start_url": "./",
   "display": "standalone",
-  "background_color": "#191715",
-  "theme_color": "#191715",
+  "background_color": "#443025",
+  "theme_color": "#443025",
   "icons": [
     {
       "src": "icon-192.png",
